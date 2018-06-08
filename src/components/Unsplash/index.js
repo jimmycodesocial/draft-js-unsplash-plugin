@@ -36,7 +36,6 @@ export default class Unsplash extends React.PureComponent {
         {...elementProps}>
 
       <img
-        {...elementProps}
         src={src}
         className={theme.unsplashImage}
         role="presentation" />
