@@ -28,8 +28,6 @@ export default class Unsplash extends React.PureComponent {
     const combinedClassName = `${theme.unsplash} ${className}`;
     const { src, user } = contentState.getEntity(block.getEntityAt(0)).getData();
 
-    console.log(contentState.getEntity(block.getEntityAt(0)).getData());
-
     return (
       <div 
         className={combinedClassName}
