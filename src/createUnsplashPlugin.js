@@ -39,6 +39,19 @@ export default ({
   return {
     blockRendererFn: (block, { getEditorState, setEditorState, setReadOnly }) => {
       if (block.getType () === ATOMIC) {
+        const contentState = getEditorState().getCurrentContent();
+        const entityKey = block.getEntityAt(0);
+
+        if (!entityKey) {
+          return null;
+        }
+
+        if (contentState.getEntity(entityKey).getType() === unsplashType) {
+          return {
+            component: ThemedUnsplash,
+            editable: false
+          };
+        }
       }
       else if (block.getType() === explorerType) {
         return {

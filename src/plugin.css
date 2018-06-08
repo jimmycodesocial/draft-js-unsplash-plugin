@@ -95,3 +95,23 @@
   display: inline-block;
   outline: none;
 }
+
+.unsplash {
+  width: 100%;
+  max-width: 100%;
+}
+
+.unsplashImage {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.unsplashCaption {
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.unsplashCaption a {
+  text-decoration: underline;
+}
