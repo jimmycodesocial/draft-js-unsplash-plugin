@@ -1,0 +1,97 @@
+.explorer {
+  z-index: 100; 
+}
+
+.explorer:focus {
+  outline: none;
+}
+
+.explorerInput {
+  width: 100%;
+  outline: none;
+  font-size: inherit;
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, .15);
+  font-weight: 400; 
+  padding: 5px 0px;  
+}
+
+.explorerResults {
+  outline: none;
+}
+
+.explorerResultsImage {
+  background-color: #eee;
+  cursor: pointer;
+  overflow: hidden;
+  float: left;
+  position: relative;
+}
+
+.explorerResultsImage:hover .explorerResultsMetadata {
+  display: block;
+  position: absolute; 
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: rgba(0,0,0,.54);
+  box-shadow: inset 0 0 0 1px #f39c12;
+  font-size: 16px;
+}
+
+.explorerResultsMetadata {
+  display: none;
+}
+
+.explorerResultsMetadata a {
+  position: absolute;
+  bottom: 2px;
+  left: 6px;
+  text-decoration: none;
+  color: rgba(255,255,255,.85);
+}
+
+.explorerPagination {
+  display: flex;
+  font-size: 16px;
+  height: 40px;
+  line-height: 1.4;
+  color: rgba(0,0,0,.54);
+  outline: none;
+}
+
+.explorerPaginationPrev {
+  text-align: left; 
+  flex: 1 1 auto; 
+  margin: auto;
+  outline: none;
+}
+
+.explorerPaginationTotal {
+  text-align: center; 
+  flex: 1 1 auto; 
+  margin: auto;
+  outline: none;
+}
+
+.explorerPaginationNext {
+  text-align: right; 
+  flex: 1 1 auto; 
+  margin: auto;
+  outline: none;
+}
+
+.explorerPaginationButton {
+  border-width: 0; 
+  padding: 0; 
+  white-space: normal; 
+  vertical-align: baseline; 
+  color: rgba(0,0,0,.54);
+  background: rgba(0,0,0,0);
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+}
