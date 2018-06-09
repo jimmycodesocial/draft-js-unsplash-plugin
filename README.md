@@ -289,3 +289,6 @@ const unsplashPlugin = createUnsplashPlugin({
   }
 });
 ```
+
+# Acknowledge
+* Icon by: https://www.iconfinder.com/icons/115759/camera_icon
