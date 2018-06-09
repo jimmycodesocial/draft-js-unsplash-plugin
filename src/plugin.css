@@ -23,11 +23,16 @@
 }
 
 .explorerResultsImage {
-  background-color: #eee;
+  background-color: #fff;
   cursor: pointer;
   overflow: hidden;
   float: left;
   position: relative;
+}
+
+.explorerResultsImage img {
+  display: block;
+  transition: transform .135s cubic-bezier(0.0,0.0,0.2,1), opacity linear .15s;
 }
 
 .explorerResultsImage:hover .explorerResultsMetadata {

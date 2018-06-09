@@ -17,6 +17,10 @@ export default ({ page, pages, total, onPaginate, theme = {} }) => {
     </button>
   );
 
+  const results = (total === 1) 
+    ? 'One result' 
+    : `${total} results`;
+
   return (
     <div tabIndex={0} className={theme.explorerPagination} >
       <div tabIndex={1} className={theme.explorerPaginationPrev}>
@@ -24,7 +28,7 @@ export default ({ page, pages, total, onPaginate, theme = {} }) => {
       </div>
 
       <div tabIndex={2} className={theme.explorerPaginationTotal}>
-        {total} results
+        {results}
       </div>
 
       <div tabIndex={3} className={theme.explorerPaginationNext}>
