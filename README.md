@@ -26,7 +26,7 @@ const { UnsplashButton } = unsplashPlugin;
 ## Configuration
 
 |       Param       | Default                             | Description                                                       |
-|:-----------------:|-------------------------------------|-------------------------------------------------------------------|
+|-------------------|-------------------------------------|-------------------------------------------------------------------|
 | theme             | Default styles                      | draft-js-unsplash-plugin/lib/plugin.css                           |
 | options           | Default behavior                    | List of options.                                                  |
 | explorerType      | 'draft-js-unsplash-plugin-explorer' | Type of entity created when inserting the explorer block.         |
@@ -38,7 +38,7 @@ const { UnsplashButton } = unsplashPlugin;
 ### Options
 
 |    Option   | Default                                    | Description                                                                                                                                                         |
-|:-----------:|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|-------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | accessKey   | (Required)                                 | Unsplash Access Key. (https://unsplash.com/oauth/applications)                                                                                                      |
 | placehoder  | 'Type to search Unsplash, and press Enter' | Text as placeholder for the Explorer.                                                                                                                               |
 | perPage     | 9                                          | Number of images to show in each page of results.                                                                                                                   |
