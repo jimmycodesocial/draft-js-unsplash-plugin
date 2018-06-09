@@ -128,16 +128,10 @@ class UnsplashExplorer extends React.Component {
   
   render () {
     const { blockProps, theme } = this.props;
-    const { placeholder } = blockProps;
+    const { placeholder, getMetadata } = blockProps;
     const { results, total, page, pages } = this.state;
 
-    const photos = results.map(result => ({ 
-      src: result.urls.regular,
-      width: result.width,
-      height: result.height,
-      user: result.user
-    }));
-
+    const photos = results.map(getMetadata);
     const ThemedImage = decorateComponentWithProps(Image, { theme });
 
     return (
@@ -181,6 +175,7 @@ UnsplashExplorer.propTypes = {
   blockProps: PropTypes.shape({
     placeholder: PropTypes.string.isRequired,
     setReadOnly: PropTypes.func.isRequired,
+    getMetadata: PropTypes.func.isRequired,
     onCancel: PropTypes.func.isRequired,
     onSearch: PropTypes.func.isRequired,
     onSelect: PropTypes.func.isRequired,

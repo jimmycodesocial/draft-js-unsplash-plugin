@@ -1,6 +1,4 @@
 import React from 'react';
-import { DraftEditorBlock, EditorBlock } from 'draft-js';
-import unionClassNames from 'union-class-names';
 
 export default class Unsplash extends React.PureComponent {
   render() {
@@ -25,8 +23,11 @@ export default class Unsplash extends React.PureComponent {
       ...elementProps
     } = otherProps;
 
-    const combinedClassName = `${theme.unsplash} ${className}`;
-    const { src, user } = contentState.getEntity(block.getEntityAt(0)).getData();
+    const combinedClassName = `${theme.unsplash} ${className || ''}`;
+    const { src, user, description } = contentState.getEntity(block.getEntityAt(0)).getData();
+    const captionPrefix = description ? 
+      `"${description}" by` 
+      : 'Photo by';
 
     return (
       <div 
@@ -40,7 +41,7 @@ export default class Unsplash extends React.PureComponent {
 
       <figcaption className={theme.unsplashCaption}>
         <span>
-          Photo by <a href={user.links.html} target="_blank" title={user.links.html}>{user.name}</a> on <a href="https://unsplash.com" target="_blank">Unsplash</a>
+          {captionPrefix} <a href={user.links.html} target="_blank" title={user.links.html}>{user.name}</a> on <a href="https://unsplash.com" target="_blank">Unsplash</a>
         </span>
       </figcaption>
       </div>

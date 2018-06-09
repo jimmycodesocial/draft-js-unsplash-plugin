@@ -9,10 +9,23 @@ const defaultOptions = {
   accessKey: null,
   placeholder: 'Type to search Unsplash, and press Enter',
   
+  // Pagination - results per page.
   perPage: 9,
+
+  // Perform the search.
   onRequest: async (url) => {
     return (await fetch(url)).json();
-  }
+  },
+
+  // Metadata to inject with the image.
+  getMetadata: (result) => ({
+    src: result.urls.regular,
+    urls: result.urls,
+    description: result.description,
+    width: result.width,
+    height: result.height,
+    user: result.user
+  })
 };
 
 export default ({
@@ -21,7 +34,8 @@ export default ({
   explorerType = 'draft-js-unsplash-plugin-explorer',
   unsplashType = 'unsplash',
   decorator = (component) => component,
-  unsplashComponent = Unsplash
+  unsplashComponent = Unsplash,
+  editable = false
 } = {}) => {
 
   // Modifiers.
@@ -56,9 +70,10 @@ export default ({
       else if (block.getType() === explorerType) {
         return {
           component: ThemedExplorer,
-          editable: false,
+          editable,
           props: {
             placeholder: pluginOptions.placeholder,
+            getMetadata: pluginOptions.getMetadata,
             setReadOnly,
 
             // When cancel the action.
