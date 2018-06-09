@@ -37,6 +37,7 @@ export default class Unsplash extends React.PureComponent {
       <img
         src={src}
         className={theme.unsplashImage}
+        alt={description}
         role="presentation" />
 
       <figcaption className={theme.unsplashCaption}>
