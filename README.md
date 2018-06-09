@@ -12,10 +12,6 @@ npm install draft-js-unsplash-plugin
 ```
 
 ## Usage
-This plugin embeds URLs in different ways:
-1. When press Enter in a block that the text is a URL.
-2. When paste a text that is a URL (disabled by default).
-3. Intregrating the Embed button with `draft-js-side-toolbar-plugin`.
 
 ```js
 import createUnsplashPlugin from 'draft-js-unsplash-plugin';
