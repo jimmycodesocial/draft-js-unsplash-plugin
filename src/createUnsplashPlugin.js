@@ -24,7 +24,8 @@ const defaultOptions = {
     description: result.description,
     width: result.width,
     height: result.height,
-    user: result.user
+    user: result.user,
+    source: result.links.html
   })
 };
 

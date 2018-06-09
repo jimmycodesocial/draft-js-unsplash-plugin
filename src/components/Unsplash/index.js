@@ -24,10 +24,13 @@ export default class Unsplash extends React.PureComponent {
     } = otherProps;
 
     const combinedClassName = `${theme.unsplash} ${className || ''}`;
-    const { src, user, description } = contentState.getEntity(block.getEntityAt(0)).getData();
+    const { src, user, description, source } = contentState.getEntity(block.getEntityAt(0)).getData();
+
     const captionPrefix = description ? 
       `"${description}" by` 
       : 'Photo by';
+
+    const sourceLink = source || 'https://unsplash.com';
 
     return (
       <div 
@@ -42,7 +45,7 @@ export default class Unsplash extends React.PureComponent {
 
       <figcaption className={theme.unsplashCaption}>
         <span>
-          {captionPrefix} <a href={user.links.html} target="_blank" title={user.links.html}>{user.name}</a> on <a href="https://unsplash.com" target="_blank">Unsplash</a>
+          {captionPrefix} <a href={user.links.html} target="_blank" title={user.links.html}>{user.name}</a> on <a href={sourceLink} target="_blank">Unsplash</a>
         </span>
       </figcaption>
       </div>
