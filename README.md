@@ -25,7 +25,7 @@ const { UnsplashButton } = unsplashPlugin;
 
 ## Configuration
 
-|       Param       | Default                             | Description                                                       |
+| Param             | Default                             | Description                                                       |
 |-------------------|-------------------------------------|-------------------------------------------------------------------|
 | theme             | Default styles                      | draft-js-unsplash-plugin/lib/plugin.css                           |
 | options           | Default behavior                    | List of options.                                                  |
@@ -37,7 +37,7 @@ const { UnsplashButton } = unsplashPlugin;
 
 ### Options
 
-|    Option   | Default                                    | Description                                                                                                                                                         |
+| Option      | Default                                    | Description                                                                                                                                                         |
 |-------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | accessKey   | (Required)                                 | Unsplash Access Key. (https://unsplash.com/oauth/applications)                                                                                                      |
 | placehoder  | 'Type to search Unsplash, and press Enter' | Text as placeholder for the Explorer.                                                                                                                               |
@@ -228,10 +228,7 @@ class MyEditor extends React.Component {
               editorState={editorState}
               onChange={this.onChange}
               plugins={this.plugins}
-              ref={(element) => { this.editor = element; }}
-              placeholder="Share your story"
-              spellCheck
-            />
+              placeholder="Share your story" />
 
             <SideToolbar />
             <AlignmentTool />
@@ -245,6 +242,34 @@ class MyEditor extends React.Component {
 
 ReactDOM.render(<MyEditor />, document.getElementById('root'));
 
+```
+
+In this other example you can see how integrate the plugin with `draft-js-image-plugin`.
+
+```js
+// npm install --save draft-js-image-plugin
+
+import createImagePlugin from 'draft-js-image-plugin';
+
+const imagePlugin = createImagePlugin();
+const unsplashPlugin = createUnsplashPlugin({
+  options: {
+    accessKey: '<my-access-key>'
+  },
+  unsplashType: 'IMAGE'   // <- Inserting with this BLOCK TYPE
+});
+
+const plugins = [
+  sideToolbarPlugin,
+  unsplashPlugin,
+  imagePlugin  // <- Must go AFTER unsplashPlugin.
+];
+
+<Editor
+  editorState={editorState}
+  onChange={this.onChange}
+  plugins={plugins}
+  placeholder="Share your story" />
 ```
 
 #### Axios
