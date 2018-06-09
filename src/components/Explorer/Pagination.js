@@ -5,7 +5,7 @@ export default ({ page, pages, total, onPaginate, theme = {} }) => {
     onClick={() => onPaginate(page - 1)}
     className={theme.explorerPaginationButton} 
     style={{ textAlign: 'right' }}>
-      Prev
+      Previous
     </button>
   );
 

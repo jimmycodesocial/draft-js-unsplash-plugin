@@ -60,7 +60,7 @@
 
 .explorerPagination {
   display: flex;
-  font-size: 16px;
+  font-size: 15px;
   height: 40px;
   line-height: 1.4;
   color: rgba(0,0,0,.54);
@@ -75,6 +75,8 @@
 }
 
 .explorerPaginationTotal {
+  font-size: inherit;
+  font-family: inherit;
   text-align: center; 
   flex: 1 1 auto; 
   margin: auto;
@@ -89,6 +91,8 @@
 }
 
 .explorerPaginationButton {
+  font-size: inherit;
+  font-family: inherit;
   border-width: 0; 
   padding: 0; 
   white-space: normal; 
