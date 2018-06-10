@@ -1,6 +1,6 @@
 {
-  "name": "draft-js-unsplash-plugin",
-  "version": "0.5.1",
+  "name": "@jimmycode/draft-js-unsplash-plugin",
+  "version": "0.5.2",
   "description": "Add Unsplash images in your draft-js editor.",
   "keywords": [
     "draft-js",
