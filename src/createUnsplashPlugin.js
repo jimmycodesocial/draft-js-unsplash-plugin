@@ -64,14 +64,14 @@ export default ({
         if (contentState.getEntity(entityKey).getType() === unsplashType) {
           return {
             component: ThemedUnsplash,
-            editable: false
+            editable
           };
         }
       }
       else if (block.getType() === explorerType) {
         return {
           component: ThemedExplorer,
-          editable,
+          editable: false,
           props: {
             placeholder: pluginOptions.placeholder,
             getMetadata: pluginOptions.getMetadata,
