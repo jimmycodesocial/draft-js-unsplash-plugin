@@ -42,7 +42,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
-          use: 'css-loader?modules&importLoaders=1&localIdentName=draftJsUnsplasjPlugin__[local]__[hash:base64:5]!postcss-loader'
+          use: 'css-loader?modules&importLoaders=1&localIdentName=draftJsUnsplashPlugin__[local]__[hash:base64:5]!postcss-loader'
         })
       }
     ]
