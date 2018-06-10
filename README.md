@@ -8,7 +8,7 @@ Add Unsplash images in your draft-js editor.
 ## Installation
 
 ```
-npm install draft-js-unsplash-plugin
+npm install @jimmycode/draft-js-unsplash-plugin
 ```
 
 ## Usage
