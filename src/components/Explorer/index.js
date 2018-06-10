@@ -128,7 +128,7 @@ class UnsplashExplorer extends React.Component {
   
   render () {
     const { blockProps, theme } = this.props;
-    const { placeholder, getMetadata } = blockProps;
+    const { placeholder, getMetadata, columns } = blockProps;
     const { results, total, page, pages } = this.state;
 
     const photos = results.map(getMetadata);
@@ -161,7 +161,7 @@ class UnsplashExplorer extends React.Component {
 
           <Gallery 
             photos={photos} 
-            columns={3} 
+            columns={columns} 
             onClick={this.onSelect} 
             ImageComponent={ThemedImage} />            
         </div>}

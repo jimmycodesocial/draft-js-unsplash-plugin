@@ -11,6 +11,7 @@ const defaultOptions = {
   
   // Pagination - results per page.
   perPage: 9,
+  columns: 3,
 
   // Perform the search.
   onRequest: async (url) => {
@@ -75,6 +76,7 @@ export default ({
           props: {
             placeholder: pluginOptions.placeholder,
             getMetadata: pluginOptions.getMetadata,
+            columns: pluginOptions.columns,
             setReadOnly,
 
             // When cancel the action.
