@@ -1,6 +1,7 @@
 import decorateComponentWithProps from 'decorate-component-with-props';
+import { getDefaultKeyBinding } from 'draft-js';
 import { UnsplashButton, UnsplashExplorer, Unsplash } from './components';
-import { addBlock, addAtomicBlock, removeBlock } from './modifiers';
+import { addBlock, addAtomicBlock, removeBlock, getCurrentBlock } from './modifiers';
 import { buildSearchPhotosUrl } from './utils';
 import defaultTheme from './plugin.css';
 
@@ -102,6 +103,35 @@ export default ({
         };
       }
     },
+
+    keyBindingFn: (event, { getEditorState }) => {
+      if (event.key === 'Backspace') {
+        const editorState = getEditorState();
+        const block = getCurrentBlock(editorState);
+
+        if (block.getType () === ATOMIC) {
+          const contentState = editorState.getCurrentContent();
+          const entityKey = block.getEntityAt(0);
+  
+          if (entityKey && contentState.getEntity(entityKey).getType() === unsplashType) {
+            return 'remove-unsplash';
+          }
+        }
+      }
+
+      return getDefaultKeyBinding(event);
+    },
+
+    handleKeyCommand: (command, editorState, { setEditorState }) => {
+      if (command === 'remove-unsplash') {
+        const block = getCurrentBlock(editorState);
+        setEditorState(removeBlock(editorState, block.key));
+
+        return 'handled';
+      }
+
+      return 'not-handled';
+    },    
 
     UnsplashButton: decorateComponentWithProps(UnsplashButton, {
       entityType: explorerType,
