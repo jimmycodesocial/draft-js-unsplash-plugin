@@ -3,7 +3,7 @@ Add Unsplash images in your draft-js editor.
 
 *This is a plugin for `draft-js-plugins-editor`.*
 
-![Demo](plugin.gif)
+![Demo](https://raw.githubusercontent.com/jimmycodesocial/draft-js-unsplash-plugin/master/plugin.gif)
 
 ## Installation
 
