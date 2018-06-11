@@ -1,6 +1,6 @@
 {
   "name": "@jimmycode/draft-js-unsplash-plugin",
-  "version": "0.5.3",
+  "version": "1.0.0",
   "description": "Add Unsplash images in your draft-js editor.",
   "keywords": [
     "draft-js",
@@ -74,6 +74,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
+    "@jimmycode/draft-js-toolbox": "^1.0.0",
     "decorate-component-with-props": "^1.1.0",
     "prop-types": "^15.6.1",
     "react-photo-gallery": "^6.0.27",

@@ -1,7 +1,7 @@
 import decorateComponentWithProps from 'decorate-component-with-props';
 import { getDefaultKeyBinding } from 'draft-js';
+import { isBlockWithEntityType, getCurrentBlock, addBlock, addAtomicBlock, removeBlock } from '@jimmycode/draft-js-toolbox';
 import { UnsplashButton, UnsplashExplorer, Unsplash } from './components';
-import { addBlock, addAtomicBlock, removeBlock, getCurrentBlock } from './modifiers';
 import { buildSearchPhotosUrl } from './utils';
 import defaultTheme from './plugin.css';
 
@@ -55,20 +55,11 @@ export default ({
 
   return {
     blockRendererFn: (block, { getEditorState, setEditorState, setReadOnly }) => {
-      if (block.getType () === ATOMIC) {
-        const contentState = getEditorState().getCurrentContent();
-        const entityKey = block.getEntityAt(0);
-
-        if (!entityKey) {
-          return null;
-        }
-
-        if (contentState.getEntity(entityKey).getType() === unsplashType) {
-          return {
-            component: ThemedUnsplash,
-            editable
-          };
-        }
+      if (isBlockWithEntityType(getEditorState(), block, unsplashType)) {
+        return {
+          component: ThemedUnsplash,
+          editable
+        };
       }
       else if (block.getType() === explorerType) {
         return {
@@ -96,8 +87,7 @@ export default ({
             // When select the picture.
             onSelect: (block, data) => {
               let editorState = removeBlock(getEditorState(), block.key);
-              editorState = addUnsplash(editorState, data);
-              setEditorState(editorState);
+              setEditorState(addUnsplash(editorState, data));
             }
           }
         };

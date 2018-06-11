@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import unionClassNames from 'union-class-names';
+import { isCurrentBlockType } from '@jimmycode/draft-js-toolbox';
 
 /**
  * Icon by: https://www.iconfinder.com/icons/115759/camera_icon
@@ -19,19 +20,9 @@ class UnsplashButton extends React.PureComponent {
     event.preventDefault();
   }
 
-  blockTypeIsActive = () => {
-    const editorState = this.props.getEditorState();
-    const blockType = editorState
-      .getCurrentContent()
-      .getBlockForKey(editorState.getSelection().getStartKey())
-      .getType();
-
-    return blockType === this.props.entityType;
-  };
-
   render () {
-    const { theme } = this.props;
-    const className = this.blockTypeIsActive()
+    const { theme, getEditorState, entityType } = this.props;
+    const className = isCurrentBlockType(getEditorState(), entityType)
       ? unionClassNames(theme.button, theme.active)
       : theme.button;
 

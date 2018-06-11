@@ -1,4 +1,5 @@
 import React from 'react';
+import unionClassNames from 'union-class-names';
 
 export default class Unsplash extends React.PureComponent {
   render() {
@@ -23,7 +24,7 @@ export default class Unsplash extends React.PureComponent {
       ...elementProps
     } = otherProps;
 
-    const combinedClassName = `${theme.unsplash} ${className || ''}`;
+    const combinedClassName = unionClassNames(theme.unsplash, className);
     const { src, user, description, source } = contentState.getEntity(block.getEntityAt(0)).getData();
 
     const captionPrefix = description ? 

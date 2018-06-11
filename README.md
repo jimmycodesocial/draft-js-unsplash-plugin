@@ -14,7 +14,7 @@ npm install @jimmycode/draft-js-unsplash-plugin
 ## Usage
 
 ```js
-import createUnsplashPlugin from 'draft-js-unsplash-plugin';
+import createUnsplashPlugin from '@jimmycode/draft-js-unsplash-plugin';
 const unsplashPlugin = createUnsplashPlugin({
   options: {
     accessKey: 'my-access-key'
@@ -27,7 +27,7 @@ const { UnsplashButton } = unsplashPlugin;
 
 | Param             | Default                             | Description                                                       |
 |-------------------|-------------------------------------|-------------------------------------------------------------------|
-| theme             | Default styles                      | draft-js-unsplash-plugin/lib/plugin.css                           |
+| theme             | Default styles                      | @jimmycode/draft-js-unsplash-plugin/lib/plugin.css                |
 | options           | Default behavior                    | List of options.                                                  |
 | explorerType      | 'draft-js-unsplash-plugin-explorer' | Type of entity created when inserting the explorer block.         |
 | unsplashType      | 'unsplash'                          | Type of entity created when inserting the image.                  |
@@ -46,7 +46,7 @@ const { UnsplashButton } = unsplashPlugin;
 | getMetadata | -                                          | Function to determine the metadata inserted along with the image selected. It MUST return an object with at least the following keys: - src - width - height - user |
 
 ## Theming
-The plugin ships with a default styling available at this location in the installed package: `node_modules/draft-js-unsplash-plugin/lib/plugin.css`
+The plugin ships with a default styling available at this location in the installed package: `node_modules/@jimmycode/draft-js-unsplash-plugin/lib/plugin.css`
 
 *Webpack Usage*
 1.  Install Webpack loaders: `npm i style-loader css-loader --save-dev`
@@ -71,7 +71,7 @@ module.exports = {
 
 
 ```js
-import 'draft-js-unsplash-plugin/lib/plugin.css';
+import '@jimmycode/draft-js-unsplash-plugin/lib/plugin.css';
 ```
 
 ## Example
@@ -84,10 +84,10 @@ import Editor from 'draft-js-plugins-editor';
 import { EditorState } from 'draft-js';
 import createSideToolbarPlugin from 'draft-js-side-toolbar-plugin';
 import BlockTypeSelect from 'draft-js-side-toolbar-plugin/lib/components/BlockTypeSelect';
-import createUnsplashPlugin from 'draft-js-unsplash-plugin';
+import createUnsplashPlugin from '@jimmycode/draft-js-unsplash-plugin';
 
 import 'draft-js-side-toolbar-plugin/lib/plugin.css';
-import 'draft-js-unsplash-plugin/lib/plugin.css';
+import '@jimmycode/draft-js-unsplash-plugin/lib/plugin.css';
 
 const unsplashPlugin = createUnsplashPlugin({
   unsplashPlugin: {
@@ -158,12 +158,12 @@ import BlockTypeSelect from 'draft-js-side-toolbar-plugin/lib/components/BlockTy
 import createResizeablePlugin from 'draft-js-resizeable-plugin';
 import createAlignmentPlugin from 'draft-js-alignment-plugin';
 import createFocusPlugin from 'draft-js-focus-plugin';
-import createUnsplashPlugin from 'draft-js-unsplash-plugin';
+import createUnsplashPlugin from '@jimmycode/draft-js-unsplash-plugin';
 
 import 'draft-js-side-toolbar-plugin/lib/plugin.css';
 import 'draft-js-alignment-plugin/lib/plugin.css';
 import 'draft-js-focus-plugin/lib/plugin.css';
-import 'draft-js-unsplash-plugin/lib/plugin.css';
+import '@jimmycode/draft-js-unsplash-plugin/lib/plugin.css';
 
 const focusPlugin = createFocusPlugin();
 const resizeablePlugin = createResizeablePlugin();
@@ -234,7 +234,6 @@ class MyEditor extends React.Component {
             <AlignmentTool />
           </div>
         </div>
-
       </div>
     );
   }
